@@ -28,3 +28,49 @@ hr {
 .sale {
   color: orange;
 }
+
+.top {
+  text-align: center;
+  font-size: 3em;
+}
+
+.box {
+  height: 450px;
+  width: 49%;
+  background-color: #0066FF;
+  float: left;
+  margin: 5px;
+}
+
+.one {
+  font-size: 4.5em;
+  color: white;
+  text-align: center;
+}
+
+.serve {
+  font-size: 2em;
+  color: white;
+  text-align: center;
+}
+
+.scoreBox {
+  margin: auto;
+  height: 275px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 11em;
+}
+
+.win {
+  background-color: green;
+}
+
+.lose {
+  background-color: red;
+}
+
+.btn {
+  margin-left: 544px;
+}

@@ -251,8 +251,37 @@ With one single expression, prove that the context angular expressions run is no
       <button ng-click="reverseTheWords(word)">Reverse!</button>
     </div>
 <hr>
-    <div ng-controller="PingPong">
-      <h1>Ping Pong Score Keeper</h1>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <h1 class="top">Ping Pong Score Keeper</h1>
+        </div>
+
+        <div class="col-sm-4 box" ng-click="count = count + 1" ng-class="{win: count === 11, lose: count2 === 11}" ng-init="count = 0">
+          <h2 class="one">Player 1</h2>
+          <br>
+          <div class="scoreBox">
+            <p class="count">{{count}}</p>
+          </div>
+          <h4 class="serve" ng-show="count" ng-hide="count2">Serving</h4>
+        </div>
+
+        <div class="col-sm-4 box" ng-click="count2 = count2 + 1" ng-class="{win: count2 === 11, lose: count === 11}" ng-init="count2 = 0">
+          <h2 class="one">Player 2</h2>
+          <br>
+          <div class="scoreBox">
+            <p class="count">{{count2}}</p>
+          </div>
+          <h4 class="serve ng-show="count2" ng-hide="count">Serving</h4>
+        </div>
+
+        <br><br>
+
+        <div>
+          <button ng-click="count=0; count2 = 0" type="button" class="btn btn-lg btn-warning">Reset</button>
+        </div>
+      </div>
     </div>
 
 
