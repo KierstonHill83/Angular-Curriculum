@@ -187,15 +187,13 @@ With one single expression, prove that the context angular expressions run is no
     <div ng-controller="fiveController">
       <div ng-repeat="camera in cameras | orderBy: prices">
         <h4>{{camera.title}}</h4>
-        <!-- <p ng-show="camera.price < 370 && camera.price > 1200">ON SALE</p> -->
-        <p><span  ng-class="{sale: camera.price !== 1099}">Price: {{camera.price | currency}}</span><span ng-hide="camera.price == 1099"> ON SALE!!</span></p>
+        <p ng-class="{sale: camera.onSale == true}">Price: {{camera.price | currency}}<span ng-show="camera.onSale == true"> ON SALE</span></p>
         <p>Rating: {{camera.rating}}</p>
         <p>
           <img ng-src="{{camera.image}}">
         </p>
       </div>
     </div>
-    make on sale highlighted!!
 <hr>
     <div ng-controller="MyFirstController">
       <h1>My name is: {{name}}</h1>
@@ -251,6 +249,10 @@ With one single expression, prove that the context angular expressions run is no
       <input ng-model="word" type="text">
       <p>Your word is: {{reverse}}</p>
       <button ng-click="reverseTheWords(word)">Reverse!</button>
+    </div>
+<hr>
+    <div ng-controller="PingPong">
+      <h1>Ping Pong Score Keeper</h1>
     </div>
 
 
