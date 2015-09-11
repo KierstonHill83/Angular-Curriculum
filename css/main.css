@@ -1,0 +1,30 @@
+/* add custom styles */
+body {
+  margin: 20px;
+}
+
+img {
+  width: 35px;
+  height: 35px;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+hr {
+  height: 1px;
+  background-color: black;
+}
+
+.sale {
+  color: orange;
+}

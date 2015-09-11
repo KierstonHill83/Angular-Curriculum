@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>Untitled</title>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- Pure javascript -->
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+         document.querySelector('[name=auto]').addEventListener('input', function(e) {
+           document.querySelector('h1').innerHTML = e.target.value;
+         });
+       });
+  </script>
+
+
+
+  </head>
+  <body>
+  <!-- Pure javascript -->
+  <h4>Pure javascript</h4>
+    <input type="text" name="auto" value="">
+
+    <h1></h1>
+<hr>
+  {{1+2}}
+<hr>
+    <!-- view(div)-displays the data and handles the user interaction -->
+    <!-- <div ng-controller="HelloController">
+      <h2>Hello, {{hello.title}}!</h2>
+    </div> -->
+
+    <div>
+      <form>
+        <select ng-model="animals">
+          <option value="Dogs">Dogs</option>
+          <option value="Cats">Cats</option>
+          <option value="Dogs and Cats">Dogs and Cats</option>
+          <option value="Neither">Neither</option>
+        </select>
+        <h4>I Love {{animals}}</h4>
+      </form>
+    </div>
+<hr>
+    <p>1 + 2 = {{1+2}}</p>
+    <p>My name is {{"BoJack" + " Horseman"}}</p>
+    <p>The array [99,43,22] is {{ [99,43,22].length }} items long.</p>
+<hr>
+    {{3.14159265359 | currency:"€"}}
+<hr>
+    <div>
+      <h4>Please say something:</h4>
+      <input type="text" ng-model="saySomething">
+      <h4>Yelling: {{saySomething | uppercase}}</h4>
+      <h4>Whispering: {{saySomething | lowercase}}</h4>
+    </div>
+<hr>
+    {{3.14159265359 | number:3}}<br>
+    {{3.14159265359 | number:6}}<br>
+    {{3.14159265359 | number:1}}
+<hr>
+    <h4>How many digits of pi do you want?</h4>
+    <select ng-model="digits">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select>
+    <h3>{{3.14159265359 | number:digits}}</h3>
+
+    <ng-pluralize count="digits"
+      when="{'1': 'The first digit of pi!',
+       'other': 'The first {} digits of pi!'}">
+    </ng-pluralize>
+<hr>
+    <h1>Super Useful Tip Calculator</h1>
+    How much did your meal cost? <input type="text" ng-model="tip"><br>
+    How much do you want to tip?<br>
+    <select ng-model="amount">
+      <option value=".10">10%</option>
+      <option value=".15">15%</option>
+      <option value=".20">20%</option>
+    </select>
+    <h3>Subtotal: {{tip | currency}}</h3>
+    <h3>Tip: {{tip*amount | currency}}</h3>
+<hr>
+With one single expression, prove that the context angular expressions run is not the window object. What is it instead?
+<hr>
+    <h1>Please fill out the following!</h1>
+    <form>
+      <div class="form-group">
+        <label>Boy's Name</label>
+        <input type="text" ng-model="boyName" placeholder="Enter a boy's name..">
+      </div>
+      <div class="form-group">
+        <label>Adjective</label>
+        <input type="text" ng-model="adjective" placeholder="Enter an adjective..">
+      </div>
+      <div class="form-group">
+        <label>Plural noun</label>
+        <input type="text" ng-model="pluralNoun" placeholder="Enter a plural noun..">
+      </div>
+      <div class="form-group">
+        <label>An insect, plural</label>
+        <input type="text" ng-model="insect" placeholder="Enter an insect, plural..">
+      </div>
+      <div class="form-group">
+        <label>Plural noun</label>
+        <input type="text" ng-model="pNoun" placeholder="Enter a plural noun..">
+      </div>
+      <div class="form-group">
+        <label>A verb ending in "s"</label>
+        <input type="text" ng-model="verb" placeholder="Enter a verb ending in..">
+      </div>
+      <button class="btn btn-lg btn-warning">Generate!</button>
+    </form>
+    <br>
+    <h1>Mad with the Libs</h1>
+    <p>I'm in love with {{boyName}}. He's so {{adjective}}! He has big flat {{pluralNoun}}, and when our {{insect}} meet, I get {{pNoun}} in my stomach. I've fallen for him like a ton of {{verb}}, and he shuffles for me, too. But I think he's got another girlfriend. What should I do?</p>
+    <button class="btn btn-lg btn-warning">Play Again?</button>
+<hr>
+    <div ng-controller="mainController">
+      <ul ng-repeat="name in names">
+        <li>{{name}}</li>
+      </ul>
+    </div>
+<hr>
+    <div ng-controller="secondController">
+      <ul ng-repeat="symbol in symbols">
+        <li>
+        <img ng-src="{{symbol}}">
+        </li>
+      </ul>
+    </div>
+<hr>
+    <div ng-controller="threeController">
+      <ul ng-repeat="duplicate in duplicates track by $index">
+        <li>{{duplicate}}</li>
+      </ul>
+    </div>
+<hr>
+    <div ng-controller="fourController">
+      <ul>
+        <li ng-repeat="movie in movies">
+        {{movie.title}}
+        </li>
+      </ul>
+    </div>
+<hr>
+    <div ng-show="3 + 4 == 5">
+      3 + 4 isn't 5, don't show
+    </div>
+
+    <div ng-show="3 + 4 == 7">
+      3 + 4 is 7, do show
+    </div>
+
+    <div ng-hide="3 + 4 == 5">
+      3 + 4 isn't 5, don't hide
+    </div>
+
+    <div ng-hide="3 + 4 == 7">
+      3 + 4 is 7, do hide
+    </div>
+<hr>
+    <h2>Sign up page</h2>
+    <input type="password" ng-class="{valid: password.length >= 6, invalid: password.length < 6}" ng-model="password">
+    <h4 ng-class="{valid: password.length >= 6, invalid: password.length < 6}">Your password is {{password.length}} characters</h4>
+    <button ng-hide="password.length < 6" class="btn btn-success">Sign Up!</button>
+    <h4 ng-show="password.length < 6">Password is invalid!</h4>
+<hr>
+    <div ng-class="{highlight: 4 + 4 == 8}"> 4 + 4 = 8</div>
+    <div ng-class="{highlight: 4 + 4 == 10}">4 + 4 = 10</div>
+<hr>
+    <h1>Camera Shop</h1>
+    <select ng-model="prices">
+      <option value="rating">Rating</option>
+      <option value="price">Price</option>
+    </select>
+    <div ng-controller="fiveController">
+      <div ng-repeat="camera in cameras | orderBy: prices">
+        <h4>{{camera.title}}</h4>
+        <!-- <p ng-show="camera.price < 370 && camera.price > 1200">ON SALE</p> -->
+        <p><span  ng-class="{sale: camera.price !== 1099}">Price: {{camera.price | currency}}</span><span ng-hide="camera.price == 1099"> ON SALE!!</span></p>
+        <p>Rating: {{camera.rating}}</p>
+        <p>
+          <img ng-src="{{camera.image}}">
+        </p>
+      </div>
+    </div>
+    make on sale highlighted!!
+<hr>
+    <div ng-controller="MyFirstController">
+      <h1>My name is: {{name}}</h1>
+      <input ng-model="name" type="text" placeholder="What is your name">
+    </div>
+<hr>
+    <div ng-controller="ExercisesController">
+    <input ng-model="favColor" type=text>
+    <p>My favorite color is: {{favColor}}</p>
+    <h3>{{secondsInACentury | number}}</h3>
+    <p>{{rightNow | date: 'fullDate'}}</p>
+    <h3>The number is: {{number}}</h3>
+    <button ng-click="pickRandomNumber()">Pick Random Number</button>
+    </div>
+<hr>
+    <div ng-controller="MadLibs">
+      <h1>Please fill out the following!</h1>
+    <form>
+      <div class="form-group">
+        <label>Boy's Name</label>
+        <input type="text" ng-model="boyName" placeholder="Enter a boy's name..">
+      </div>
+      <div class="form-group">
+        <label>Adjective</label>
+        <input type="text" ng-model="adjective" placeholder="Enter an adjective..">
+      </div>
+      <div class="form-group">
+        <label>Plural noun</label>
+        <input type="text" ng-model="pluralNoun" placeholder="Enter a plural noun..">
+      </div>
+      <div class="form-group">
+        <label>An insect, plural</label>
+        <input type="text" ng-model="insect" placeholder="Enter an insect, plural..">
+      </div>
+      <div class="form-group">
+        <label>Plural noun</label>
+        <input type="text" ng-model="pNoun" placeholder="Enter a plural noun..">
+      </div>
+      <div class="form-group">
+        <label>A verb ending in "s"</label>
+        <input type="text" ng-model="verb" placeholder="Enter a verb ending in..">
+      </div>
+      <button class="btn btn-lg btn-warning">Generate!</button>
+    </form>
+    <br>
+    <h1>Mad with the Libs</h1>
+    <p>I'm in love with {{boyName}}. He's so {{adjective}}! He has big flat {{pluralNoun}}, and when our {{insect}} meet, I get {{pNoun}} in my stomach. I've fallen for him like a ton of {{verb}}, and he shuffles for me, too. But I think he's got another girlfriend. What should I do?</p>
+    <button class="btn btn-lg btn-warning">Play Again?</button>
+    </div>
+<hr>
+    <div ng-controller="reverseWords">
+      <h2>Word Reverser</h2>
+      <input ng-model="word" type="text">
+      <p>Your word is: {{reverse}}</p>
+      <button ng-click="reverseTheWords(word)">Reverse!</button>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+
+    <!-- controller(the whole script)-controls the relationship between the models and views by exposing parts of the model and managing state -->
+    <script>
+    // angular.module("myapp", [])
+    //   .controller("HelloController", function($scope) {
+    //     //model($scope.hello)-where the data lives
+    //     $scope.hello = {};
+    //     $scope.hello.title = "World";
+    //   });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
